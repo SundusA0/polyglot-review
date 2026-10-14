@@ -1,5 +1,7 @@
 # Polyglot Review
 
+![tests](https://github.com/SundusA0/polyglot-review/actions/workflows/tests.yml/badge.svg)
+
 A Streamlit workbench for reviewing an LLM assistant's answers across languages, comparing prompt versions, and reading the product-usage data that says which languages deserve attention.
 
 It grew out of a simple question: when an HR helpdesk assistant answers in French, Japanese or Arabic, how do you know the answer is right, uses the company's terminology, and actually stayed in the target language — and how do you tell whether a new prompt made things better?
