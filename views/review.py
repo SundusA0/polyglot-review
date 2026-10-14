@@ -133,26 +133,26 @@ def _case_panel(case: dict, glossary) -> None:
             common.chips(items)
 
 
-def _annotation_form(case: dict, rec: dict, suggested: list[str]) -> None:
+def _annotation_form(case: dict, rec: dict, suggested: list[str], slot: str = "") -> None:
     ss = st.session_state
     rid = rec["response_id"]
     existing = ss["annotations"].get(rid)
-    with st.form(key=f"form_{rid}", border=True):
+    with st.form(key=f"form_{slot}{rid}", border=True):
         st.markdown("**Reviewer annotation**")
         c1, c2 = st.columns(2)
         hf_default = existing.get("human_factuality") if existing else None
         fl_default = existing.get("human_fluency") if existing else None
         hf = c1.segmented_control("Factuality (1–5)", [1, 2, 3, 4, 5], default=int(hf_default) if hf_default else None,
-                                  key=f"hf_{rid}",
+                                  key=f"hf_{slot}{rid}",
                                   help="1 = wrong or off-policy, 5 = every claim supported and nothing important missing")
         fl = c2.segmented_control("Fluency (1–5)", [1, 2, 3, 4, 5], default=int(fl_default) if fl_default else None,
-                                  key=f"fl_{rid}",
+                                  key=f"fl_{slot}{rid}",
                                   help="How natural the answer reads to a native speaker of the target language")
         proposed = common.tags_of(existing) if existing else suggested
         default_tags = [t for t in proposed if t in ERROR_TAGS]
         tags = st.multiselect("Error tags (pre-filled from the heuristics; edit freely)", ERROR_TAGS,
-                              default=default_tags, key=f"tags_{rid}")
-        notes = st.text_area("Notes", value=(existing or {}).get("notes", ""), height=80, key=f"notes_{rid}")
+                              default=default_tags, key=f"tags_{slot}{rid}")
+        notes = st.text_area("Notes", value=(existing or {}).get("notes", ""), height=80, key=f"notes_{slot}{rid}")
         submitted = st.form_submit_button("Save annotation", type="primary")
     if submitted:
         if hf is None:
@@ -231,7 +231,7 @@ def _response_panel(case: dict, version: str, slot: str, responses: pd.DataFrame
         b2.button("Regenerate with OpenAI", key=f"regen_{slot}_{version}", on_click=_queue_generation,
                   args=(case["case_id"], version))
 
-    _annotation_form(case, rec, scores.suggested_tags)
+    _annotation_form(case, rec, scores.suggested_tags, slot)
 
 
 def _preference_form(case: dict, va: str, vb: str) -> None:

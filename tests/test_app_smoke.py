@@ -76,9 +76,9 @@ def test_review_annotation_flow():
     # Fill in and save an annotation for version A of that case.
     at.text_input(key="reviewer").set_value("tester").run()
     rid = "pto_accrual-fr-v1"
-    at.segmented_control(key=f"hf_{rid}").set_value(4)
-    at.segmented_control(key=f"fl_{rid}").set_value(5)
-    at.text_area(key=f"notes_{rid}").set_value("looks fine")
+    at.segmented_control(key=f"hf_A{rid}").set_value(4)
+    at.segmented_control(key=f"fl_A{rid}").set_value(5)
+    at.text_area(key=f"notes_A{rid}").set_value("looks fine")
     save = [b for b in at.button if b.label == "Save annotation"][0]
     save.click().run()
     _assert_clean(at)
