@@ -90,6 +90,8 @@ I ran all 36 cases through Gemini Flash-Lite with each prompt version (temperatu
 - **The stricter prompt (v3) was worse than v2**: judge score -0.22 (CI -0.39 to -0.06), and 14% of its answers missed a key fact against 0% for v2. Reading the five affected answers, every v3 answer is exactly three sentences, the minimum the prompt allows, and what it drops is the secondary fact (the 15-day yearly total, the 3-day delay for paper cheques). The longer rule list seems to push the model toward the shortest compliant answer. v2 is the version to keep.
 - **Gemini's safety filter blocked an ordinary Arabic question.** The expense-reimbursement question was refused under all three prompts (`finish_reason: content_filter: PROHIBITED_CONTENT`) while the same question was answered in the other five languages. That one case is why Arabic scores lower. A single case is not a pattern, but it is the kind of failure an English-only evaluation never sees.
 
+- **The judge agrees with a native speaker on Arabic.** I scored 12 of the real Arabic answers (v1 and v3) myself without looking at the judge's grades: we matched exactly on 8 of 12 and were within one point on all 12, with the same average (4.08) and no lean in either direction (`docs/judge_agreement_ar.csv`). A small sample, but it is evidence the judge's Arabic grades are not just self-agreement.
+
 Limits: one small model, judged by a model from the same family, one answer per case, 36 synthetic HR scenarios.
 
 ### Hand review of the synthetic set

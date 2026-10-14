@@ -1,0 +1,13 @@
+﻿response_id,you,judge,diff,notes,judge_rationale
+benefits_enrollment-ar-v1-live,5,4,-1,,الإجابة دقيقة ومدعومة بالسياسة بشكل عام، ولكنها أضافت عبارة 'وإذا فاتتك هذه الفترة' والتي تعد صياغة تفسيرية غير موجودة حرفياً في النص الأصلي.
+benefits_enrollment-ar-v3-live,4,5,1,,"The assistant's answer is fully accurate and matches the policy context and reference answer word-for-word, covering eligibility, open enrollment, and life events."
+expense_reimbursement-ar-v1-live,1,1,0,,لم يقدم المساعد أي إجابة على الإطلاق.
+expense_reimbursement-ar-v3-live,1,1,0,,لم يقدم المساعد أي إجابة على الإطلاق.
+overtime-ar-v1-live,5,5,0,,جميع المعلومات الواردة في إجابة المساعد دقيقة ومطابقة تماماً لسياسة الشركة المذكورة، مع صياغة بلغة عربية صحيحة.
+overtime-ar-v3-live,4,4,0,,"The assistant answered accurately based on the policy, but added an extra suggestion to contact HR which is not mentioned in the policy context."
+parental_leave-ar-v1-live,5,5,0,,الإجابة دقيقة وتعتمد بالكامل على السياسة المرفقة، وتتضمن جميع التفاصيل المهمة باللغة العربية المطلوبة.
+parental_leave-ar-v3-live,4,5,1,,الإجابة دقيقة بالكامل ومستندة بشكل مباشر ودقيق إلى سياسة الشركة، وتتطابق مع المعايير المطلوبة باللغة العربية.
+pay_schedule-ar-v1-live,5,4,-1,,"The assistant accurately answers the main questions based on the policy, but omits the detail about direct deposit and paper checks arrival times."
+pay_schedule-ar-v3-live,5,5,0,,الإجابة دقيقة وصحيحة بالكامل بناءً على سياسة الشركة وتغطي جميع أسئلة الموظف دون أي أخطاء أو معلومات غير مدعومة.
+pto_accrual-ar-v1-live,5,5,0,,الإجابة دقيقة بالكامل وتتوافق مع جميع التفاصيل الموجودة في سياسة الشركة، مع صياغة بلغة عربية صحيحة.
+pto_accrual-ar-v3-live,5,5,0,,جميع المعلومات الواردة في إجابة المساعد دقيقة ومطابقة تماماً لسياسة الشركة المذكورة في النص الأصلي دون أي نقص أو زيادة.
