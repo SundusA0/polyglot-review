@@ -1,0 +1,11 @@
+streamlit>=1.50
+pandas>=2.2
+numpy>=1.26
+plotly>=5.22
+rapidfuzz>=3.6
+python-dotenv>=1.0
+openai>=1.40
+duckdb>=1.0
+
+# Optional: live queries against a Databricks SQL warehouse
+# databricks-sql-connector>=3.0

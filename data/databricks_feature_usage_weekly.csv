@@ -1,0 +1,137 @@
+week_start,feature_name,product_area,channel,events,unique_users,accounts
+2026-08-17,Assistant Chat,Assistant,mobile,70,40,29
+2026-08-17,Assistant Chat,Assistant,web,186,53,30
+2026-08-17,Benefits Enrollment,Benefits,mobile,3,2,2
+2026-08-17,Benefits Enrollment,Benefits,web,30,11,9
+2026-08-17,Expense Report,Expenses,mobile,18,14,12
+2026-08-17,Expense Report,Expenses,web,60,33,24
+2026-08-17,Org Directory Search,People,mobile,28,25,20
+2026-08-17,Org Directory Search,People,web,75,55,28
+2026-08-17,Pay Statement View,Pay,mobile,69,61,29
+2026-08-17,Pay Statement View,Pay,web,107,87,35
+2026-08-17,Schedule View,Time,mobile,340,147,36
+2026-08-17,Schedule View,Time,web,275,131,35
+2026-08-17,Time-Off Request,Time,mobile,48,39,21
+2026-08-17,Time-Off Request,Time,web,89,61,29
+2026-08-17,Timesheet Submit,Time,api,27,25,19
+2026-08-17,Timesheet Submit,Time,mobile,114,85,35
+2026-08-17,Timesheet Submit,Time,web,229,137,38
+2026-08-24,Assistant Chat,Assistant,mobile,57,30,18
+2026-08-24,Assistant Chat,Assistant,web,193,45,24
+2026-08-24,Benefits Enrollment,Benefits,mobile,6,4,4
+2026-08-24,Benefits Enrollment,Benefits,web,33,13,10
+2026-08-24,Expense Report,Expenses,mobile,41,30,23
+2026-08-24,Expense Report,Expenses,web,87,44,27
+2026-08-24,Org Directory Search,People,mobile,28,26,20
+2026-08-24,Org Directory Search,People,web,108,72,35
+2026-08-24,Pay Statement View,Pay,mobile,83,68,31
+2026-08-24,Pay Statement View,Pay,web,124,94,32
+2026-08-24,Schedule View,Time,mobile,252,129,37
+2026-08-24,Schedule View,Time,web,240,111,37
+2026-08-24,Time-Off Request,Time,mobile,26,23,17
+2026-08-24,Time-Off Request,Time,web,68,48,25
+2026-08-24,Timesheet Submit,Time,api,19,18,13
+2026-08-24,Timesheet Submit,Time,mobile,90,73,32
+2026-08-24,Timesheet Submit,Time,web,240,145,38
+2026-08-31,Assistant Chat,Assistant,mobile,66,33,19
+2026-08-31,Assistant Chat,Assistant,web,165,48,23
+2026-08-31,Benefits Enrollment,Benefits,mobile,7,7,6
+2026-08-31,Benefits Enrollment,Benefits,web,43,18,13
+2026-08-31,Expense Report,Expenses,mobile,34,22,17
+2026-08-31,Expense Report,Expenses,web,97,40,26
+2026-08-31,Org Directory Search,People,mobile,15,15,10
+2026-08-31,Org Directory Search,People,web,89,71,33
+2026-08-31,Pay Statement View,Pay,mobile,96,77,34
+2026-08-31,Pay Statement View,Pay,web,136,102,34
+2026-08-31,Schedule View,Time,mobile,283,125,37
+2026-08-31,Schedule View,Time,web,240,118,36
+2026-08-31,Time-Off Request,Time,mobile,41,32,20
+2026-08-31,Time-Off Request,Time,web,72,51,28
+2026-08-31,Timesheet Submit,Time,api,12,12,12
+2026-08-31,Timesheet Submit,Time,mobile,100,81,33
+2026-08-31,Timesheet Submit,Time,web,252,147,36
+2026-09-07,Assistant Chat,Assistant,mobile,83,45,25
+2026-09-07,Assistant Chat,Assistant,web,202,61,28
+2026-09-07,Benefits Enrollment,Benefits,mobile,8,6,5
+2026-09-07,Benefits Enrollment,Benefits,web,43,17,10
+2026-09-07,Expense Report,Expenses,mobile,18,12,6
+2026-09-07,Expense Report,Expenses,web,61,28,18
+2026-09-07,Org Directory Search,People,mobile,25,20,17
+2026-09-07,Org Directory Search,People,web,80,61,27
+2026-09-07,Pay Statement View,Pay,mobile,76,65,28
+2026-09-07,Pay Statement View,Pay,web,128,97,34
+2026-09-07,Schedule View,Time,mobile,263,123,37
+2026-09-07,Schedule View,Time,web,266,117,37
+2026-09-07,Time-Off Request,Time,mobile,49,40,24
+2026-09-07,Time-Off Request,Time,web,81,57,28
+2026-09-07,Timesheet Submit,Time,api,14,13,12
+2026-09-07,Timesheet Submit,Time,mobile,74,64,30
+2026-09-07,Timesheet Submit,Time,web,225,139,36
+2026-09-14,Assistant Chat,Assistant,mobile,96,54,27
+2026-09-14,Assistant Chat,Assistant,web,230,67,29
+2026-09-14,Benefits Enrollment,Benefits,mobile,6,5,4
+2026-09-14,Benefits Enrollment,Benefits,web,48,17,11
+2026-09-14,Expense Report,Expenses,mobile,25,17,11
+2026-09-14,Expense Report,Expenses,web,60,29,17
+2026-09-14,Org Directory Search,People,mobile,23,22,19
+2026-09-14,Org Directory Search,People,web,88,67,32
+2026-09-14,Pay Statement View,Pay,mobile,75,69,29
+2026-09-14,Pay Statement View,Pay,web,136,106,36
+2026-09-14,Schedule View,Time,mobile,308,145,37
+2026-09-14,Schedule View,Time,web,249,130,38
+2026-09-14,Time-Off Request,Time,mobile,52,40,22
+2026-09-14,Time-Off Request,Time,web,58,47,24
+2026-09-14,Timesheet Submit,Time,api,17,16,14
+2026-09-14,Timesheet Submit,Time,mobile,97,71,31
+2026-09-14,Timesheet Submit,Time,web,238,136,36
+2026-09-21,Assistant Chat,Assistant,mobile,91,47,27
+2026-09-21,Assistant Chat,Assistant,web,244,64,31
+2026-09-21,Benefits Enrollment,Benefits,mobile,8,5,5
+2026-09-21,Benefits Enrollment,Benefits,web,35,14,12
+2026-09-21,Expense Report,Expenses,mobile,17,11,8
+2026-09-21,Expense Report,Expenses,web,64,28,16
+2026-09-21,Org Directory Search,People,mobile,24,20,13
+2026-09-21,Org Directory Search,People,web,91,57,27
+2026-09-21,Pay Statement View,Pay,mobile,85,74,30
+2026-09-21,Pay Statement View,Pay,web,129,94,35
+2026-09-21,Schedule View,Time,mobile,286,136,38
+2026-09-21,Schedule View,Time,web,221,117,34
+2026-09-21,Time-Off Request,Time,mobile,48,37,20
+2026-09-21,Time-Off Request,Time,web,57,46,24
+2026-09-21,Timesheet Submit,Time,api,19,17,13
+2026-09-21,Timesheet Submit,Time,mobile,98,71,32
+2026-09-21,Timesheet Submit,Time,web,239,142,37
+2026-09-28,Assistant Chat,Assistant,mobile,116,52,28
+2026-09-28,Assistant Chat,Assistant,web,266,70,32
+2026-09-28,Benefits Enrollment,Benefits,mobile,17,13,10
+2026-09-28,Benefits Enrollment,Benefits,web,59,27,18
+2026-09-28,Expense Report,Expenses,mobile,21,17,13
+2026-09-28,Expense Report,Expenses,web,67,30,23
+2026-09-28,Org Directory Search,People,mobile,25,23,17
+2026-09-28,Org Directory Search,People,web,85,59,29
+2026-09-28,Pay Statement View,Pay,mobile,79,64,29
+2026-09-28,Pay Statement View,Pay,web,119,95,34
+2026-09-28,Schedule View,Time,mobile,274,125,37
+2026-09-28,Schedule View,Time,web,224,118,36
+2026-09-28,Time-Off Request,Time,mobile,39,33,19
+2026-09-28,Time-Off Request,Time,web,63,49,23
+2026-09-28,Timesheet Submit,Time,api,22,20,12
+2026-09-28,Timesheet Submit,Time,mobile,82,60,27
+2026-09-28,Timesheet Submit,Time,web,242,140,40
+2026-10-05,Assistant Chat,Assistant,mobile,116,58,31
+2026-10-05,Assistant Chat,Assistant,web,341,75,32
+2026-10-05,Benefits Enrollment,Benefits,mobile,11,11,8
+2026-10-05,Benefits Enrollment,Benefits,web,114,32,18
+2026-10-05,Expense Report,Expenses,mobile,21,16,13
+2026-10-05,Expense Report,Expenses,web,62,33,22
+2026-10-05,Org Directory Search,People,mobile,30,26,18
+2026-10-05,Org Directory Search,People,web,99,67,28
+2026-10-05,Pay Statement View,Pay,mobile,82,73,30
+2026-10-05,Pay Statement View,Pay,web,115,97,31
+2026-10-05,Schedule View,Time,mobile,278,140,38
+2026-10-05,Schedule View,Time,web,252,132,36
+2026-10-05,Time-Off Request,Time,mobile,33,27,18
+2026-10-05,Time-Off Request,Time,web,50,41,26
+2026-10-05,Timesheet Submit,Time,api,16,15,13
+2026-10-05,Timesheet Submit,Time,mobile,98,77,36
+2026-10-05,Timesheet Submit,Time,web,250,149,38

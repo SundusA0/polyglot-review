@@ -1,0 +1,384 @@
+{
+  "languages": {
+    "en": {"name": "English", "rtl": false},
+    "fr": {"name": "French", "rtl": false},
+    "es": {"name": "Spanish", "rtl": false},
+    "de": {"name": "German", "rtl": false},
+    "ja": {"name": "Japanese", "rtl": false},
+    "ar": {"name": "Arabic", "rtl": true}
+  },
+  "greetings": {
+    "en": ["Hi!", "Hi there!", "Hello!"],
+    "fr": ["Bonjour!", "Bonjour,"],
+    "es": ["¡Hola!", "Hola,"],
+    "de": ["Hallo!", "Guten Tag!"],
+    "ja": ["こんにちは！", "こんにちは。"],
+    "ar": ["مرحباً!", "أهلاً!"]
+  },
+  "closings": {
+    "en": [
+      "Let me know if you'd like help submitting a request.",
+      "Happy to help if you have any other questions!",
+      "If anything is unclear, just ask."
+    ],
+    "fr": [
+      "N'hésitez pas si vous souhaitez de l'aide pour soumettre une demande.",
+      "Je reste disponible si vous avez d'autres questions!",
+      "Si quelque chose n'est pas clair, demandez-moi."
+    ],
+    "es": [
+      "Avíseme si necesita ayuda para enviar una solicitud.",
+      "¡Con gusto le ayudo si tiene otras preguntas!",
+      "Si algo no queda claro, pregúnteme."
+    ],
+    "de": [
+      "Sagen Sie mir gerne Bescheid, wenn Sie Hilfe beim Einreichen eines Antrags brauchen.",
+      "Melden Sie sich gerne, wenn Sie noch Fragen haben!",
+      "Wenn etwas unklar ist, fragen Sie einfach nach."
+    ],
+    "ja": [
+      "申請のお手伝いが必要でしたらお知らせください。",
+      "他にご不明な点があればお気軽にお尋ねください！",
+      "ご不明な点があれば、お知らせください。"
+    ],
+    "ar": [
+      "أخبرني إذا كنت بحاجة إلى مساعدة في تقديم طلب.",
+      "يسعدني مساعدتك إذا كانت لديك أي أسئلة أخرى!",
+      "إذا كان هناك شيء غير واضح، فلا تتردد في السؤال."
+    ]
+  },
+  "hallucinations": {
+    "en": [
+      "This policy was last updated in 2019 and also applies to contractors.",
+      "Your manager can approve an exception to this policy on request."
+    ],
+    "fr": [
+      "Cette politique a été mise à jour en 2019 et s'applique aussi aux contractuels.",
+      "Votre gestionnaire peut approuver une exception à cette politique sur demande."
+    ],
+    "es": [
+      "Esta política se actualizó por última vez en 2019 y también aplica a los contratistas.",
+      "Su gerente puede aprobar una excepción a esta política si la solicita."
+    ],
+    "de": [
+      "Diese Richtlinie wurde zuletzt 2019 aktualisiert und gilt auch für externe Auftragnehmer.",
+      "Ihre Führungskraft kann auf Anfrage eine Ausnahme von dieser Richtlinie genehmigen."
+    ],
+    "ja": [
+      "このポリシーは2019年に最終更新され、契約社員にも適用されます。",
+      "上長に依頼すれば、このポリシーの例外を承認してもらうこともできます。"
+    ],
+    "ar": [
+      "تم تحديث هذه السياسة آخر مرة في عام 2019 وهي تنطبق أيضاً على المتعاقدين.",
+      "يمكن لمديرك الموافقة على استثناء من هذه السياسة عند الطلب."
+    ]
+  },
+  "untranslated": [
+    "Let me know if there's anything else I can help with!",
+    "Please note that this applies to full-time employees only."
+  ],
+  "scenarios": [
+    {
+      "id": "pto_accrual",
+      "title": "PTO accrual and carryover",
+      "required_concepts": ["pto", "carryover"],
+      "cells": {
+        "en": {
+          "question": "How many vacation days do I get each month, and can I roll over the ones I don't use?",
+          "context": "Full-time employees accrue 1.25 days of paid time off (PTO) per month, for a total of 15 days per year. Up to 5 unused PTO days may be carried over into the next calendar year, and carried-over days must be used by March 31.",
+          "reference": "Full-time employees accrue 1.25 days of paid time off per month, which adds up to 15 days per year. You can carry over up to 5 unused days into the next calendar year, and those carried-over days must be used by March 31.",
+          "body": "As a full-time employee, you accrue 1.25 days of paid time off each month, which comes to 15 days per year. If you don't use all of it, you can carry over up to 5 unused days into the next calendar year. Just keep in mind that carried-over days need to be used by March 31.",
+          "key_facts": ["1.25", "15", "5", "March 31"]
+        },
+        "fr": {
+          "question": "Combien de jours de vacances est-ce que j'accumule chaque mois, et est-ce que je peux garder ceux que je n'utilise pas?",
+          "context": "Les employés à temps plein accumulent 1,25 jour de congés payés par mois, soit 15 jours par année. Jusqu'à 5 jours de congés payés non utilisés peuvent être reportés à l'année civile suivante, et les jours reportés doivent être utilisés avant le 31 mars.",
+          "reference": "Les employés à temps plein accumulent 1,25 jour de congés payés par mois, soit 15 jours par année. Vous pouvez reporter jusqu'à 5 jours non utilisés à l'année civile suivante, et ces jours reportés doivent être utilisés avant le 31 mars.",
+          "body": "En tant qu'employé à temps plein, vous accumulez 1,25 jour de congés payés chaque mois, ce qui représente 15 jours par année. Si vous ne les utilisez pas tous, vous pouvez reporter jusqu'à 5 jours non utilisés à l'année civile suivante. N'oubliez pas que les jours reportés doivent être utilisés avant le 31 mars.",
+          "key_facts": ["1,25", "15", "5", "31 mars"]
+        },
+        "es": {
+          "question": "¿Cuántos días libres acumulo cada mes y puedo guardar los que no use?",
+          "context": "Los empleados a tiempo completo acumulan 1,25 días de vacaciones pagadas al mes, es decir, 15 días al año. Se pueden traspasar hasta 5 días de vacaciones pagadas no utilizados al siguiente año natural, y los días traspasados deben utilizarse antes del 31 de marzo.",
+          "reference": "Los empleados a tiempo completo acumulan 1,25 días de vacaciones pagadas al mes, lo que equivale a 15 días al año. Puede traspasar hasta 5 días no utilizados al siguiente año natural, y esos días traspasados deben utilizarse antes del 31 de marzo.",
+          "body": "Como empleado a tiempo completo, acumula 1,25 días de vacaciones pagadas cada mes, lo que suma 15 días al año. Si no los utiliza todos, puede traspasar hasta 5 días no utilizados al siguiente año natural. Tenga en cuenta que los días traspasados deben utilizarse antes del 31 de marzo.",
+          "key_facts": ["1,25", "15", "5", "31 de marzo"]
+        },
+        "de": {
+          "question": "Wie viele freie Tage bekomme ich pro Monat, und kann ich nicht genutzte Tage mitnehmen?",
+          "context": "Vollzeitbeschäftigte sammeln 1,25 Tage bezahlten Urlaub pro Monat an, insgesamt 15 Tage pro Jahr. Bis zu 5 nicht genutzte Urlaubstage können in das nächste Kalenderjahr übertragen werden; übertragene Tage müssen bis zum 31. März genommen werden.",
+          "reference": "Vollzeitbeschäftigte sammeln 1,25 Tage bezahlten Urlaub pro Monat an, also 15 Tage pro Jahr. Sie können bis zu 5 nicht genutzte Tage in das nächste Kalenderjahr übertragen; diese übertragenen Tage müssen bis zum 31. März genommen werden.",
+          "body": "Als Vollzeitkraft sammeln Sie jeden Monat 1,25 Tage bezahlten Urlaub an, das sind 15 Tage pro Jahr. Wenn Sie nicht alle Tage nutzen, können Sie bis zu 5 nicht genutzte Tage in das nächste Kalenderjahr übertragen. Beachten Sie bitte, dass übertragene Tage bis zum 31. März genommen werden müssen.",
+          "key_facts": ["1,25", "15", "5", "31. März"]
+        },
+        "ja": {
+          "question": "毎月何日の休みがもらえますか？使わなかった分は翌年に持ち越せますか？",
+          "context": "正社員は毎月1.25日の有給休暇を取得し、年間で合計15日となります。未使用の有給休暇は最大5日まで翌暦年に繰り越すことができ、繰り越した日数は3月31日までに使用する必要があります。",
+          "reference": "正社員は毎月1.25日の有給休暇が付与され、年間で15日になります。未使用分は最大5日まで翌暦年に繰り越すことができ、繰り越した日数は3月31日までに使用する必要があります。",
+          "body": "正社員の方は毎月1.25日の有給休暇が付与され、年間で15日になります。使い切れなかった場合は、最大5日まで翌暦年に繰り越すことができます。なお、繰り越した日数は3月31日までに使用する必要がありますのでご注意ください。",
+          "key_facts": ["1.25", "15", "5", "3月31日"]
+        },
+        "ar": {
+          "question": "كم يوم عطلة أحصل عليه كل شهر؟ وهل يمكنني الاحتفاظ بالأيام التي لم أستخدمها؟",
+          "context": "يحصل الموظفون بدوام كامل على 1.25 يوم من الإجازة المدفوعة الأجر شهرياً، بإجمالي 15 يوماً في السنة. يمكن ترحيل ما يصل إلى 5 أيام غير مستخدمة إلى السنة الميلادية التالية، ويجب استخدام الأيام المرحّلة قبل 31 مارس.",
+          "reference": "يحصل الموظفون بدوام كامل على 1.25 يوم من الإجازة المدفوعة الأجر شهرياً، أي 15 يوماً في السنة. يمكنك ترحيل ما يصل إلى 5 أيام غير مستخدمة إلى السنة الميلادية التالية، ويجب استخدام الأيام المرحّلة قبل 31 مارس.",
+          "body": "بصفتك موظفاً بدوام كامل، تحصل على 1.25 يوم من الإجازة المدفوعة الأجر كل شهر، أي ما مجموعه 15 يوماً في السنة. وإذا لم تستخدمها كلها، يمكنك ترحيل ما يصل إلى 5 أيام غير مستخدمة إلى السنة الميلادية التالية. يرجى ملاحظة أن الأيام المرحّلة يجب استخدامها قبل 31 مارس.",
+          "key_facts": ["1.25", "15", "5", "31 مارس"]
+        }
+      }
+    },
+    {
+      "id": "pay_schedule",
+      "title": "Pay schedule and timesheet cutoff",
+      "required_concepts": ["pay_period", "timesheet", "direct_deposit"],
+      "cells": {
+        "en": {
+          "question": "When do I get paid, and when do I need to submit my hours?",
+          "context": "Employees are paid biweekly on Fridays. Timesheets must be submitted by 5:00 p.m. on the Monday before payday. Direct deposit payments are available on payday; paper cheques can take up to 3 business days to arrive.",
+          "reference": "You are paid biweekly on Fridays. Timesheets must be submitted by 5:00 p.m. on the Monday before payday. Direct deposit payments are available on payday, while paper cheques can take up to 3 business days to arrive.",
+          "body": "You're paid biweekly, every other Friday. To make sure your hours are included, submit your timesheet by 5:00 p.m. on the Monday before payday. If you're set up for direct deposit, the money is available on payday; paper cheques can take up to 3 business days to arrive.",
+          "key_facts": ["biweekly", "Friday", "5:00", "Monday", "3"]
+        },
+        "fr": {
+          "question": "Quand est-ce que je reçois ma paie, et quand dois-je soumettre mes heures?",
+          "context": "Les employés sont payés toutes les deux semaines, le vendredi. Les feuilles de temps doivent être soumises avant 17 h le lundi précédant le jour de paie. Les paiements par dépôt direct sont disponibles le jour de paie; les chèques papier peuvent prendre jusqu'à 3 jours ouvrables.",
+          "reference": "Vous êtes payé toutes les deux semaines, le vendredi. Les feuilles de temps doivent être soumises avant 17 h le lundi précédant le jour de paie. Les paiements par dépôt direct sont disponibles le jour de paie, tandis que les chèques papier peuvent prendre jusqu'à 3 jours ouvrables.",
+          "body": "Vous êtes payé toutes les deux semaines, un vendredi sur deux. Pour que vos heures soient comptées, soumettez votre feuille de temps avant 17 h le lundi précédant le jour de paie. Si vous avez le dépôt direct, l'argent est disponible le jour de paie; les chèques papier peuvent prendre jusqu'à 3 jours ouvrables.",
+          "key_facts": ["toutes les deux semaines", "vendredi", "17 h", "lundi", "3"]
+        },
+        "es": {
+          "question": "¿Cuándo me pagan y cuándo tengo que enviar mis horas?",
+          "context": "Los empleados cobran cada dos semanas, los viernes. Las hojas de horas deben enviarse antes de las 5:00 p. m. del lunes anterior al día de pago. Los pagos por depósito directo están disponibles el día de pago; los cheques en papel pueden tardar hasta 3 días hábiles en llegar.",
+          "reference": "Se le paga cada dos semanas, los viernes. Las hojas de horas deben enviarse antes de las 5:00 p. m. del lunes anterior al día de pago. Los pagos por depósito directo están disponibles el día de pago, mientras que los cheques en papel pueden tardar hasta 3 días hábiles en llegar.",
+          "body": "Se le paga cada dos semanas, un viernes sí y otro no. Para que sus horas se incluyan, envíe su hoja de horas antes de las 5:00 p. m. del lunes anterior al día de pago. Si tiene depósito directo, el dinero está disponible el día de pago; los cheques en papel pueden tardar hasta 3 días hábiles en llegar.",
+          "key_facts": ["cada dos semanas", "viernes", "5:00", "lunes", "3"]
+        },
+        "de": {
+          "question": "Wann bekomme ich mein Gehalt, und bis wann muss ich meine Stunden einreichen?",
+          "context": "Die Gehaltszahlung erfolgt alle zwei Wochen, jeweils freitags. Stundenzettel müssen bis 17:00 Uhr am Montag vor dem Zahltag eingereicht werden. Zahlungen per Direkteinzahlung sind am Zahltag verfügbar; Papierschecks können bis zu 3 Werktage dauern.",
+          "reference": "Sie werden alle zwei Wochen, jeweils freitags, bezahlt. Stundenzettel müssen bis 17:00 Uhr am Montag vor dem Zahltag eingereicht werden. Zahlungen per Direkteinzahlung sind am Zahltag verfügbar, während Papierschecks bis zu 3 Werktage dauern können.",
+          "body": "Sie werden alle zwei Wochen bezahlt, immer freitags. Damit Ihre Stunden berücksichtigt werden, reichen Sie Ihren Stundenzettel bitte bis 17:00 Uhr am Montag vor dem Zahltag ein. Mit Direkteinzahlung ist das Geld am Zahltag verfügbar; Papierschecks können bis zu 3 Werktage dauern.",
+          "key_facts": ["alle zwei Wochen", "freitags", "17:00", "Montag", "3"]
+        },
+        "ja": {
+          "question": "給料はいつもらえますか？勤務時間はいつまでに提出すればいいですか？",
+          "context": "給与は隔週の金曜日に支払われます。タイムシートは給与支払日の前の月曜日の午後5時までに提出する必要があります。口座振込による支払いは給与支払日に利用可能です。紙の小切手は到着までに最大3営業日かかる場合があります。",
+          "reference": "給与は隔週の金曜日に支払われます。タイムシートは給与支払日の前の月曜日の午後5時までに提出してください。口座振込の場合は給与支払日に受け取れますが、紙の小切手は到着までに最大3営業日かかる場合があります。",
+          "body": "給与は隔週で、金曜日に支払われます。勤務時間を確実に反映させるため、タイムシートは給与支払日の前の月曜日の午後5時までに提出してください。口座振込を設定している場合は給与支払日に受け取れますが、紙の小切手は到着までに最大3営業日かかることがあります。",
+          "key_facts": ["隔週", "金曜日", "午後5時", "月曜日", "3"]
+        },
+        "ar": {
+          "question": "متى أستلم راتبي؟ ومتى يجب أن أقدّم ساعات عملي؟",
+          "context": "تُدفع رواتب الموظفين كل أسبوعين يوم الجمعة. يجب تقديم جداول الحضور قبل الساعة 5:00 مساءً يوم الاثنين الذي يسبق يوم الدفع. تتوفر مدفوعات الإيداع المباشر في يوم الدفع؛ وقد تستغرق الشيكات الورقية حتى 3 أيام عمل للوصول.",
+          "reference": "يُدفع راتبك كل أسبوعين يوم الجمعة. يجب تقديم جدول الحضور قبل الساعة 5:00 مساءً يوم الاثنين الذي يسبق يوم الدفع. تتوفر مدفوعات الإيداع المباشر في يوم الدفع، بينما قد تستغرق الشيكات الورقية حتى 3 أيام عمل للوصول.",
+          "body": "يُدفع راتبك كل أسبوعين، يوم الجمعة. ولضمان احتساب ساعاتك، قدّم جدول الحضور قبل الساعة 5:00 مساءً يوم الاثنين الذي يسبق يوم الدفع. إذا كان لديك إيداع مباشر، يكون المبلغ متاحاً في يوم الدفع؛ أما الشيكات الورقية فقد تستغرق حتى 3 أيام عمل للوصول.",
+          "key_facts": ["كل أسبوعين", "الجمعة", "5:00", "الاثنين", "3"]
+        }
+      }
+    },
+    {
+      "id": "overtime",
+      "title": "Overtime pay",
+      "required_concepts": ["overtime", "hourly_rate"],
+      "cells": {
+        "en": {
+          "question": "How are my extra hours paid out?",
+          "context": "Non-exempt employees are paid overtime at 1.5 times their regular hourly rate for any hours worked beyond 40 in a work week. Overtime must be approved by a manager in advance.",
+          "reference": "Non-exempt employees receive overtime pay at 1.5 times their regular hourly rate for hours worked beyond 40 in a work week. Overtime must be approved by your manager in advance.",
+          "body": "If you're a non-exempt employee, any hours you work beyond 40 in a work week are paid as overtime at 1.5 times your regular hourly rate. One important detail: overtime needs to be approved by your manager in advance.",
+          "key_facts": ["1.5", "40", "in advance"]
+        },
+        "fr": {
+          "question": "Comment mes heures en trop sont-elles payées?",
+          "context": "Les employés non exemptés reçoivent une rémunération des heures supplémentaires égale à 1,5 fois leur taux horaire régulier pour toute heure travaillée au-delà de 40 heures par semaine de travail. Les heures supplémentaires doivent être approuvées à l'avance par un gestionnaire.",
+          "reference": "Les employés non exemptés reçoivent une rémunération des heures supplémentaires de 1,5 fois leur taux horaire régulier pour les heures travaillées au-delà de 40 heures par semaine de travail. Les heures supplémentaires doivent être approuvées à l'avance par votre gestionnaire.",
+          "body": "Si vous êtes un employé non exempté, toute heure travaillée au-delà de 40 heures dans une semaine de travail est payée en heures supplémentaires, à 1,5 fois votre taux horaire régulier. Un détail important : les heures supplémentaires doivent être approuvées à l'avance par votre gestionnaire.",
+          "key_facts": ["1,5", "40", "à l'avance"]
+        },
+        "es": {
+          "question": "¿Cómo me pagan las horas que trabajo de más?",
+          "context": "Los empleados no exentos reciben el pago de horas extra a 1,5 veces su tarifa por hora regular por las horas trabajadas más allá de 40 en una semana laboral. Las horas extra deben ser aprobadas con antelación por un gerente.",
+          "reference": "Los empleados no exentos reciben el pago de horas extra a 1,5 veces su tarifa por hora regular por las horas trabajadas más allá de 40 en una semana laboral. Las horas extra deben ser aprobadas con antelación por su gerente.",
+          "body": "Si es un empleado no exento, cualquier hora que trabaje más allá de 40 en una semana laboral se paga como horas extra, a 1,5 veces su tarifa por hora regular. Un detalle importante: las horas extra deben ser aprobadas con antelación por su gerente.",
+          "key_facts": ["1,5", "40", "con antelación"]
+        },
+        "de": {
+          "question": "Wie werden meine zusätzlichen Stunden bezahlt?",
+          "context": "Nicht freigestellte Mitarbeitende erhalten für Überstunden das 1,5-Fache ihres regulären Stundensatzes für alle Stunden, die über 40 Stunden pro Arbeitswoche hinausgehen. Überstunden müssen vorab von einer Führungskraft genehmigt werden.",
+          "reference": "Nicht freigestellte Mitarbeitende erhalten für Stunden über 40 pro Arbeitswoche Überstundenvergütung in Höhe des 1,5-Fachen ihres regulären Stundensatzes. Überstunden müssen vorab von Ihrer Führungskraft genehmigt werden.",
+          "body": "Wenn Sie nicht freigestellt sind, werden alle Stunden über 40 pro Arbeitswoche als Überstunden mit dem 1,5-Fachen Ihres regulären Stundensatzes vergütet. Wichtig: Überstunden müssen vorab von Ihrer Führungskraft genehmigt werden.",
+          "key_facts": ["1,5", "40", "vorab"]
+        },
+        "ja": {
+          "question": "余分に働いた時間はどのように支払われますか？",
+          "context": "非適用除外の従業員には、1週間の労働時間が40時間を超えた分について、通常の時給の1.5倍の残業手当が支払われます。残業は事前に上長の承認を得る必要があります。",
+          "reference": "非適用除外の従業員の場合、1週間に40時間を超えて働いた時間は、通常の時給の1.5倍の残業手当として支払われます。残業は事前に上長の承認を得る必要があります。",
+          "body": "非適用除外の従業員の方は、1週間に40時間を超えて働いた分が残業として扱われ、通常の時給の1.5倍で支払われます。重要な点として、残業は事前に上長の承認を得る必要があります。",
+          "key_facts": ["1.5", "40", "事前に"]
+        },
+        "ar": {
+          "question": "كيف يتم دفع الساعات الزائدة التي أعملها؟",
+          "context": "يحصل الموظفون غير المعفيين على أجر العمل الإضافي بمعدل 1.5 ضعف أجرهم بالساعة العادي عن أي ساعات عمل تتجاوز 40 ساعة في أسبوع العمل. يجب الحصول على موافقة المدير مسبقاً على العمل الإضافي.",
+          "reference": "يحصل الموظفون غير المعفيين على أجر العمل الإضافي بمعدل 1.5 ضعف الأجر بالساعة العادي عن الساعات التي تتجاوز 40 ساعة في أسبوع العمل. ويجب الحصول على موافقة مديرك مسبقاً على العمل الإضافي.",
+          "body": "إذا كنت موظفاً غير معفي، فإن أي ساعات تعملها بعد 40 ساعة في أسبوع العمل تُدفع كعمل إضافي بمعدل 1.5 ضعف أجرك بالساعة العادي. نقطة مهمة: يجب الحصول على موافقة مديرك مسبقاً على العمل الإضافي.",
+          "key_facts": ["1.5", "40", "مسبقاً"]
+        }
+      }
+    },
+    {
+      "id": "benefits_enrollment",
+      "title": "Benefits eligibility and open enrollment",
+      "required_concepts": ["open_enrollment", "qualifying_life_event"],
+      "cells": {
+        "en": {
+          "question": "When can I sign up for health insurance?",
+          "context": "New hires become eligible for health benefits on the first day of the month after completing 30 days of employment. Open enrollment runs from November 1 to November 15 each year. Outside of open enrollment, changes are only allowed after a qualifying life event, such as marriage or the birth of a child.",
+          "reference": "You become eligible for health benefits on the first day of the month after completing 30 days of employment. Open enrollment runs from November 1 to November 15 each year; outside that window, changes are only allowed after a qualifying life event such as marriage or the birth of a child.",
+          "body": "As a new hire, you become eligible for health benefits on the first day of the month after you complete 30 days of employment. After that, you can make changes during open enrollment, which runs from November 1 to November 15 each year. Outside that window, changes are only possible after a qualifying life event, such as getting married or having a child.",
+          "key_facts": ["30", "November 1 to November 15", "qualifying life event"]
+        },
+        "fr": {
+          "question": "Quand est-ce que je peux m'inscrire à l'assurance maladie?",
+          "context": "Les nouveaux employés deviennent admissibles aux avantages sociaux en santé le premier jour du mois suivant 30 jours d'emploi. La période d'adhésion ouverte se déroule du 1er au 15 novembre chaque année. En dehors de cette période, les changements ne sont permis qu'après un événement de vie admissible, comme un mariage ou la naissance d'un enfant.",
+          "reference": "Vous devenez admissible aux avantages sociaux en santé le premier jour du mois suivant 30 jours d'emploi. La période d'adhésion ouverte se déroule du 1er au 15 novembre chaque année; en dehors de cette période, les changements ne sont permis qu'après un événement de vie admissible, comme un mariage ou la naissance d'un enfant.",
+          "body": "En tant que nouvel employé, vous devenez admissible aux avantages sociaux en santé le premier jour du mois suivant vos 30 jours d'emploi. Par la suite, vous pouvez faire des changements pendant la période d'adhésion ouverte, qui a lieu du 1er au 15 novembre chaque année. En dehors de cette période, les changements ne sont possibles qu'après un événement de vie admissible, comme un mariage ou la naissance d'un enfant.",
+          "key_facts": ["30", "du 1er au 15 novembre", "événement de vie admissible"]
+        },
+        "es": {
+          "question": "¿Cuándo puedo darme de alta en el seguro médico?",
+          "context": "Los nuevos empleados son elegibles para los beneficios de salud el primer día del mes siguiente a completar 30 días de empleo. La inscripción abierta se realiza del 1 al 15 de noviembre de cada año. Fuera de la inscripción abierta, solo se permiten cambios después de un evento de vida calificado, como un matrimonio o el nacimiento de un hijo.",
+          "reference": "Usted es elegible para los beneficios de salud el primer día del mes siguiente a completar 30 días de empleo. La inscripción abierta se realiza del 1 al 15 de noviembre de cada año; fuera de ese período, solo se permiten cambios después de un evento de vida calificado, como un matrimonio o el nacimiento de un hijo.",
+          "body": "Como nuevo empleado, es elegible para los beneficios de salud el primer día del mes siguiente a completar 30 días de empleo. Después, puede hacer cambios durante la inscripción abierta, que se realiza del 1 al 15 de noviembre de cada año. Fuera de ese período, los cambios solo son posibles después de un evento de vida calificado, como casarse o tener un hijo.",
+          "key_facts": ["30", "del 1 al 15 de noviembre", "evento de vida calificado"]
+        },
+        "de": {
+          "question": "Wann kann ich mich für die Krankenversicherung anmelden?",
+          "context": "Neue Mitarbeitende sind ab dem ersten Tag des Monats nach 30 Tagen Betriebszugehörigkeit für die Krankenversicherungsleistungen anspruchsberechtigt. Die offene Anmeldephase läuft jedes Jahr vom 1. bis 15. November. Außerhalb der offenen Anmeldephase sind Änderungen nur nach einem qualifizierenden Lebensereignis wie einer Heirat oder der Geburt eines Kindes möglich.",
+          "reference": "Sie sind ab dem ersten Tag des Monats nach 30 Tagen Betriebszugehörigkeit für die Krankenversicherungsleistungen anspruchsberechtigt. Die offene Anmeldephase läuft jedes Jahr vom 1. bis 15. November; außerhalb dieses Zeitraums sind Änderungen nur nach einem qualifizierenden Lebensereignis wie einer Heirat oder der Geburt eines Kindes möglich.",
+          "body": "Als neue Mitarbeiterin oder neuer Mitarbeiter sind Sie ab dem ersten Tag des Monats nach 30 Tagen Betriebszugehörigkeit für die Krankenversicherungsleistungen anspruchsberechtigt. Danach können Sie Änderungen während der offenen Anmeldephase vornehmen, die jedes Jahr vom 1. bis 15. November läuft. Außerhalb dieses Zeitraums sind Änderungen nur nach einem qualifizierenden Lebensereignis möglich, etwa einer Heirat oder der Geburt eines Kindes.",
+          "key_facts": ["30", "vom 1. bis 15. November", "qualifizierenden Lebensereignis"]
+        },
+        "ja": {
+          "question": "健康保険にはいつ加入できますか？",
+          "context": "新入社員は、入社から30日経過後の翌月1日に医療給付の対象となります。オープンエンロールメントは毎年11月1日から11月15日まで実施されます。その期間外の変更は、結婚や子どもの誕生などの適格ライフイベントがあった場合にのみ認められます。",
+          "reference": "入社から30日経過後の翌月1日に医療給付の対象となります。オープンエンロールメントは毎年11月1日から11月15日まで実施され、その期間外の変更は、結婚や子どもの誕生などの適格ライフイベントがあった場合にのみ認められます。",
+          "body": "新入社員の方は、入社から30日経過後の翌月1日に医療給付の対象となります。その後は、毎年11月1日から11月15日まで実施されるオープンエンロールメントの期間中に変更できます。期間外の変更は、結婚や子どもの誕生などの適格ライフイベントがあった場合にのみ可能です。",
+          "key_facts": ["30", "11月1日から11月15日", "適格ライフイベント"]
+        },
+        "ar": {
+          "question": "متى يمكنني الاشتراك في التأمين الصحي؟",
+          "context": "يصبح الموظفون الجدد مؤهلين للمزايا الصحية في اليوم الأول من الشهر التالي لإكمال 30 يوماً من العمل. تُجرى فترة التسجيل المفتوح من 1 إلى 15 نوفمبر من كل عام. خارج فترة التسجيل المفتوح، لا يُسمح بالتغييرات إلا بعد حدث حياتي مؤهل، مثل الزواج أو ولادة طفل.",
+          "reference": "تصبح مؤهلاً للمزايا الصحية في اليوم الأول من الشهر التالي لإكمال 30 يوماً من العمل. تُجرى فترة التسجيل المفتوح من 1 إلى 15 نوفمبر من كل عام؛ وخارج هذه الفترة، لا يُسمح بالتغييرات إلا بعد حدث حياتي مؤهل مثل الزواج أو ولادة طفل.",
+          "body": "بصفتك موظفاً جديداً، تصبح مؤهلاً للمزايا الصحية في اليوم الأول من الشهر التالي لإكمال 30 يوماً من العمل. بعد ذلك، يمكنك إجراء التغييرات خلال فترة التسجيل المفتوح التي تُجرى من 1 إلى 15 نوفمبر من كل عام. وخارج هذه الفترة، لا يمكن إجراء التغييرات إلا بعد حدث حياتي مؤهل، مثل الزواج أو ولادة طفل.",
+          "key_facts": ["30", "من 1 إلى 15 نوفمبر", "حدث حياتي مؤهل"]
+        }
+      }
+    },
+    {
+      "id": "parental_leave",
+      "title": "Parental leave",
+      "required_concepts": ["parental_leave", "base_salary"],
+      "greeting": {
+        "en": "Congratulations!",
+        "fr": "Félicitations!",
+        "es": "¡Felicidades!",
+        "de": "Herzlichen Glückwunsch!",
+        "ja": "おめでとうございます！",
+        "ar": "مبارك!"
+      },
+      "cells": {
+        "en": {
+          "question": "How much time off can I take after my baby is born?",
+          "context": "Eligible employees may take up to 16 weeks of paid parental leave at 100% of base salary. Requests should be submitted at least 8 weeks before the expected start of the leave.",
+          "reference": "Eligible employees can take up to 16 weeks of paid parental leave at 100% of base salary. Requests should be submitted at least 8 weeks before the expected start of the leave.",
+          "body": "Eligible employees can take up to 16 weeks of paid parental leave, paid at 100% of base salary. To get things organized in time, submit your request at least 8 weeks before the expected start of your leave.",
+          "key_facts": ["16", "100%", "8"]
+        },
+        "fr": {
+          "question": "Combien de temps puis-je m'absenter après la naissance de mon bébé?",
+          "context": "Les employés admissibles peuvent prendre jusqu'à 16 semaines de congé parental payé à 100 % du salaire de base. Les demandes doivent être soumises au moins 8 semaines avant le début prévu du congé.",
+          "reference": "Les employés admissibles peuvent prendre jusqu'à 16 semaines de congé parental payé à 100 % du salaire de base. Les demandes doivent être soumises au moins 8 semaines avant le début prévu du congé.",
+          "body": "Les employés admissibles peuvent prendre jusqu'à 16 semaines de congé parental, payé à 100 % du salaire de base. Pour que tout soit prêt à temps, soumettez votre demande au moins 8 semaines avant le début prévu de votre congé.",
+          "key_facts": ["16", "100 %", "8"]
+        },
+        "es": {
+          "question": "¿Cuánto tiempo puedo ausentarme después del nacimiento de mi bebé?",
+          "context": "Los empleados elegibles pueden tomar hasta 16 semanas de licencia parental pagada al 100 % del salario base. Las solicitudes deben presentarse al menos 8 semanas antes del inicio previsto de la licencia.",
+          "reference": "Los empleados elegibles pueden tomar hasta 16 semanas de licencia parental pagada al 100 % del salario base. Las solicitudes deben presentarse al menos 8 semanas antes del inicio previsto de la licencia.",
+          "body": "Los empleados elegibles pueden tomar hasta 16 semanas de licencia parental, pagada al 100 % del salario base. Para que todo esté listo a tiempo, presente su solicitud al menos 8 semanas antes del inicio previsto de su licencia.",
+          "key_facts": ["16", "100 %", "8"]
+        },
+        "de": {
+          "question": "Wie lange kann ich nach der Geburt meines Babys freinehmen?",
+          "context": "Anspruchsberechtigte Mitarbeitende können bis zu 16 Wochen bezahlte Elternzeit mit 100 % des Grundgehalts nehmen. Anträge sollten mindestens 8 Wochen vor dem voraussichtlichen Beginn der Elternzeit eingereicht werden.",
+          "reference": "Anspruchsberechtigte Mitarbeitende können bis zu 16 Wochen bezahlte Elternzeit mit 100 % des Grundgehalts nehmen. Anträge sollten mindestens 8 Wochen vor dem voraussichtlichen Beginn der Elternzeit eingereicht werden.",
+          "body": "Anspruchsberechtigte Mitarbeitende können bis zu 16 Wochen bezahlte Elternzeit nehmen, vergütet mit 100 % des Grundgehalts. Damit rechtzeitig alles organisiert ist, reichen Sie Ihren Antrag bitte mindestens 8 Wochen vor dem voraussichtlichen Beginn Ihrer Elternzeit ein.",
+          "key_facts": ["16", "100 %", "8"]
+        },
+        "ja": {
+          "question": "赤ちゃんが生まれた後、どのくらい休めますか？",
+          "context": "対象となる従業員は、基本給の100%が支給される有給の育児休業を最大16週間取得できます。申請は休業開始予定日の少なくとも8週間前に提出する必要があります。",
+          "reference": "対象となる従業員は、基本給の100%が支給される有給の育児休業を最大16週間取得できます。申請は休業開始予定日の少なくとも8週間前に提出してください。",
+          "body": "対象となる従業員の方は、最大16週間の有給の育児休業を取得でき、基本給の100%が支給されます。手続きを間に合わせるため、申請は休業開始予定日の少なくとも8週間前に提出してください。",
+          "key_facts": ["16", "100%", "8"]
+        },
+        "ar": {
+          "question": "كم من الوقت يمكنني أخذ إجازة بعد ولادة طفلي؟",
+          "context": "يمكن للموظفين المؤهلين الحصول على إجازة والدية مدفوعة الأجر تصل إلى 16 أسبوعاً بنسبة 100% من الراتب الأساسي. يجب تقديم الطلبات قبل 8 أسابيع على الأقل من الموعد المتوقع لبدء الإجازة.",
+          "reference": "يمكن للموظفين المؤهلين الحصول على إجازة والدية مدفوعة الأجر تصل إلى 16 أسبوعاً بنسبة 100% من الراتب الأساسي. ويجب تقديم الطلب قبل 8 أسابيع على الأقل من الموعد المتوقع لبدء الإجازة.",
+          "body": "يمكن للموظفين المؤهلين الحصول على إجازة والدية مدفوعة الأجر تصل إلى 16 أسبوعاً، بنسبة 100% من الراتب الأساسي. ولترتيب كل شيء في الوقت المناسب، قدّم طلبك قبل 8 أسابيع على الأقل من الموعد المتوقع لبدء إجازتك.",
+          "key_facts": ["16", "100%", "8"]
+        }
+      }
+    },
+    {
+      "id": "expense_reimbursement",
+      "title": "Expense reimbursement",
+      "required_concepts": ["expense_report", "itemized_receipt"],
+      "cells": {
+        "en": {
+          "question": "I paid for a client lunch out of pocket. How do I get the money back?",
+          "context": "Expense reports must be submitted within 30 days of the purchase date and must include itemized receipts for any expense over $25. Approved reimbursements are paid with the next regular payroll run.",
+          "reference": "Submit an expense report within 30 days of the purchase date, including an itemized receipt for any expense over $25. Once approved, the reimbursement is paid with the next regular payroll run.",
+          "body": "To get reimbursed, submit an expense report within 30 days of the purchase date. Make sure to attach an itemized receipt for any expense over $25. Once your manager approves it, the reimbursement is paid out with the next regular payroll run.",
+          "key_facts": ["30", "$25", "payroll run"]
+        },
+        "fr": {
+          "question": "J'ai payé un dîner avec un client de ma poche. Comment je récupère mon argent?",
+          "context": "Les notes de frais doivent être soumises dans les 30 jours suivant la date d'achat et doivent inclure un reçu détaillé pour toute dépense de plus de 25 $. Les remboursements approuvés sont versés avec le prochain cycle de paie régulier.",
+          "reference": "Soumettez une note de frais dans les 30 jours suivant la date d'achat, avec un reçu détaillé pour toute dépense de plus de 25 $. Une fois approuvé, le remboursement est versé avec le prochain cycle de paie régulier.",
+          "body": "Pour être remboursé, soumettez une note de frais dans les 30 jours suivant la date d'achat. Assurez-vous de joindre un reçu détaillé pour toute dépense de plus de 25 $. Une fois que votre gestionnaire l'a approuvée, le remboursement est versé avec le prochain cycle de paie régulier.",
+          "key_facts": ["30", "25 $", "cycle de paie"]
+        },
+        "es": {
+          "question": "Pagué un almuerzo con un cliente de mi bolsillo. ¿Cómo recupero el dinero?",
+          "context": "Los informes de gastos deben presentarse dentro de los 30 días posteriores a la fecha de compra y deben incluir un recibo detallado para cualquier gasto superior a 25 $. Los reembolsos aprobados se pagan con la siguiente nómina regular.",
+          "reference": "Presente un informe de gastos dentro de los 30 días posteriores a la fecha de compra, con un recibo detallado para cualquier gasto superior a 25 $. Una vez aprobado, el reembolso se paga con la siguiente nómina regular.",
+          "body": "Para que le reembolsen, presente un informe de gastos dentro de los 30 días posteriores a la fecha de compra. Asegúrese de adjuntar un recibo detallado para cualquier gasto superior a 25 $. Una vez que su gerente lo apruebe, el reembolso se paga con la siguiente nómina regular.",
+          "key_facts": ["30", "25 $", "nómina"]
+        },
+        "de": {
+          "question": "Ich habe ein Mittagessen mit einem Kunden aus eigener Tasche bezahlt. Wie bekomme ich das Geld zurück?",
+          "context": "Spesenabrechnungen müssen innerhalb von 30 Tagen nach dem Kaufdatum eingereicht werden und für jede Ausgabe über 25 $ einen Einzelbeleg enthalten. Genehmigte Erstattungen werden mit dem nächsten regulären Gehaltslauf ausgezahlt.",
+          "reference": "Reichen Sie innerhalb von 30 Tagen nach dem Kaufdatum eine Spesenabrechnung ein, mit einem Einzelbeleg für jede Ausgabe über 25 $. Nach der Genehmigung wird die Erstattung mit dem nächsten regulären Gehaltslauf ausgezahlt.",
+          "body": "Für die Erstattung reichen Sie bitte innerhalb von 30 Tagen nach dem Kaufdatum eine Spesenabrechnung ein. Fügen Sie für jede Ausgabe über 25 $ einen Einzelbeleg bei. Sobald Ihre Führungskraft die Abrechnung genehmigt hat, wird die Erstattung mit dem nächsten regulären Gehaltslauf ausgezahlt.",
+          "key_facts": ["30", "25 $", "Gehaltslauf"]
+        },
+        "ja": {
+          "question": "取引先とのランチ代を自腹で払いました。どうすれば返金してもらえますか？",
+          "context": "経費精算は購入日から30日以内に提出する必要があり、25ドルを超える経費については明細付きの領収書を添付しなければなりません。承認された払い戻しは、次回の通常の給与支払いと一緒に支払われます。",
+          "reference": "購入日から30日以内に経費精算を提出し、25ドルを超える経費には明細付きの領収書を添付してください。承認後、払い戻しは次回の通常の給与支払いと一緒に支払われます。",
+          "body": "払い戻しを受けるには、購入日から30日以内に経費精算を提出してください。25ドルを超える経費には、必ず明細付きの領収書を添付してください。上長の承認後、払い戻しは次回の通常の給与支払いと一緒に支払われます。",
+          "key_facts": ["30", "25", "給与支払い"]
+        },
+        "ar": {
+          "question": "دفعت ثمن غداء مع عميل من جيبي الخاص. كيف أسترد المبلغ؟",
+          "context": "يجب تقديم تقارير المصروفات خلال 30 يوماً من تاريخ الشراء، ويجب أن تتضمن إيصالاً مفصّلاً لأي مصروف يزيد عن 25 دولاراً. تُدفع المبالغ المستردة المعتمدة مع دورة الرواتب العادية التالية.",
+          "reference": "قدّم تقرير مصروفات خلال 30 يوماً من تاريخ الشراء، مع إيصال مفصّل لأي مصروف يزيد عن 25 دولاراً. بعد الاعتماد، يُدفع المبلغ المسترد مع دورة الرواتب العادية التالية.",
+          "body": "لاسترداد المبلغ، قدّم تقرير مصروفات خلال 30 يوماً من تاريخ الشراء. واحرص على إرفاق إيصال مفصّل لأي مصروف يزيد عن 25 دولاراً. وبعد أن يعتمده مديرك، يُدفع المبلغ المسترد مع دورة الرواتب العادية التالية.",
+          "key_facts": ["30", "25", "دورة الرواتب"]
+        }
+      }
+    }
+  ]
+}

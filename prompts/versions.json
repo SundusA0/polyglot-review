@@ -1,0 +1,20 @@
+[
+  {
+    "version": "v1",
+    "file": "v1_baseline.md",
+    "name": "Baseline",
+    "description": "Plain helpful-assistant instruction. No glossary, no explicit grounding rule, language only implied by the question."
+  },
+  {
+    "version": "v2",
+    "file": "v2_glossary_grounded.md",
+    "name": "Glossary + grounding",
+    "description": "Adds the language-specific glossary block and a rule to answer only from the policy context, in the user's language."
+  },
+  {
+    "version": "v3",
+    "file": "v3_grounded_strict_numbers.md",
+    "name": "Strict numbers + fallback",
+    "description": "v2 plus explicit handling of numbers and dates (copy them verbatim from context) and an instruction to say when the policy does not cover the question."
+  }
+]

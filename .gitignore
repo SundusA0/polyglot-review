@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Secrets and local config
+.env
+.streamlit/secrets.toml
+
+# Reviewer output (keep your own annotations out of the repo)
+annotations/*.csv
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Local agent/editor folders
+.agents/
+.claude/
