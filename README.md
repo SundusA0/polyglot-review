@@ -79,6 +79,15 @@ The warehouse side expects the columns the bundled query produces (`week_start, 
 
 ![Usage page](docs/screenshots/usage.png)
 
+## What I found reviewing it myself
+
+I reviewed 13 responses by hand in the English and Arabic cases, the two languages I can judge as a native speaker (`docs/sample_annotations.csv`).
+
+- **The baseline prompt holds up in English but not in Arabic.** My average factuality score for Arabic went from 2.0 with v1 to 4.4 with v2, while English barely moved (4.5 to 4.6). An English-only check would have rated v1 as good enough.
+- **The suggested tags matched my judgement on every response I reviewed.** It's a small sample, but it's a useful sanity check alongside the calibration numbers above, which are measured on synthetic errors.
+
+Next, I want more than one reviewer per language, so agreement between reviewers can be measured instead of assumed.
+
 ## Project layout
 
 ```
