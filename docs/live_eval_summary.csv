@@ -1,0 +1,4 @@
+version,answers,judge_mean,factuality_auto,terminology_auto,flagged_pct,terminology_mismatch_pct,omission_pct,wrong_language_pct,untranslated_pct,truncated_pct
+v1,36,4.61,86.72,78.75,39.0,8.0,28.0,0.0,0.0,3.0
+v2,36,4.81,97.22,97.22,3.0,0.0,0.0,0.0,0.0,3.0
+v3,36,4.58,94.03,97.22,17.0,0.0,14.0,0.0,0.0,3.0

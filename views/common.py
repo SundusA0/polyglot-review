@@ -102,7 +102,15 @@ def cases_df() -> pd.DataFrame:
 
 @st.cache_data(show_spinner=False)
 def responses_df() -> pd.DataFrame:
-    return load_responses()
+    """Synthetic demo responses, plus real model responses from scripts/run_live_eval.py if present."""
+    base = load_responses()
+    if config.LIVE_RESPONSES_CSV.exists():
+        live = pd.read_csv(config.LIVE_RESPONSES_CSV, dtype=str).fillna("")
+        for col in RESPONSE_COLUMNS:
+            if col not in live.columns:
+                live[col] = ""
+        base = pd.concat([base, live[RESPONSE_COLUMNS]], ignore_index=True)
+    return base
 
 
 @st.cache_resource(show_spinner=False)
@@ -131,6 +139,9 @@ def scored_responses() -> pd.DataFrame:
 def version_labels() -> dict[str, str]:
     labels = {v["version"]: f"{v['version']} · {v['name']}" for v in prompt_versions()}
     for v in sorted(all_responses()["prompt_version"].unique()):
+        base = v[:-5] if v.endswith("-live") else v
+        if v.endswith("-live") and base in labels:
+            labels[v] = f"{labels[base]} (real model)"
         labels.setdefault(v, v)
     return labels
 

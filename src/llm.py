@@ -1,8 +1,15 @@
-"""Optional OpenAI calls: generate a response for a prompt version, grade a
+"""Optional model calls: generate a response for a prompt version, grade a
 response with an LLM judge, and draft a short usage narrative.
 
 Nothing in the app depends on these; without an API key the buttons are hidden.
-The model name comes from OPENAI_MODEL and defaults to a small, cheap chat model.
+
+Two providers work through the same OpenAI client:
+
+* OpenAI      - OPENAI_API_KEY, model from OPENAI_MODEL (default gpt-4.1-mini)
+* Google Gemini (free tier) - GEMINI_API_KEY, model from GEMINI_MODEL
+                (default gemini-flash-latest), via Gemini's OpenAI-compatible endpoint
+
+Gemini is used when GEMINI_API_KEY is set, unless LLM_PROVIDER=openai.
 """
 from __future__ import annotations
 
@@ -14,43 +21,77 @@ from typing import Any
 from .config import DEFAULT_OPENAI_MODEL, PROMPTS_DIR
 from .data import Glossary, load_prompt_template, render_template
 
+GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
+DEFAULT_GEMINI_MODEL = "gemini-flash-latest"
+
 
 class LLMNotConfigured(RuntimeError):
     pass
 
 
+def provider() -> str:
+    """'openai' or 'gemini'."""
+    chosen = os.getenv("LLM_PROVIDER", "").strip().lower()
+    if chosen in ("openai", "gemini"):
+        return chosen
+    return "gemini" if os.getenv("GEMINI_API_KEY", "").strip() else "openai"
+
+
 def resolve_api_key(override: str | None = None) -> str | None:
-    key = (override or "").strip() or os.getenv("OPENAI_API_KEY", "").strip()
+    env = "GEMINI_API_KEY" if provider() == "gemini" else "OPENAI_API_KEY"
+    key = (override or "").strip() or os.getenv(env, "").strip()
     return key or None
 
 
 def resolve_model(override: str | None = None) -> str:
-    return (override or "").strip() or os.getenv("OPENAI_MODEL", "").strip() or DEFAULT_OPENAI_MODEL
+    if (override or "").strip():
+        return override.strip()
+    if provider() == "gemini":
+        return os.getenv("GEMINI_MODEL", "").strip() or DEFAULT_GEMINI_MODEL
+    return os.getenv("OPENAI_MODEL", "").strip() or DEFAULT_OPENAI_MODEL
 
 
-def make_client(api_key: str | None):
+def resolve_base_url() -> str | None:
+    if provider() == "gemini":
+        return GEMINI_BASE_URL
+    return os.getenv("OPENAI_BASE_URL", "").strip() or None
+
+
+def make_client(api_key: str | None, base_url: str | None = None):
     if not api_key:
-        raise LLMNotConfigured("Set OPENAI_API_KEY (or paste a key in the sidebar) to enable live calls.")
+        raise LLMNotConfigured(
+            "Set OPENAI_API_KEY or GEMINI_API_KEY in .env (or paste a key in the sidebar) to enable live calls."
+        )
     from openai import OpenAI  # imported lazily so the app works without the package configured
 
-    return OpenAI(api_key=api_key)
+    return OpenAI(api_key=api_key, base_url=base_url or resolve_base_url())
 
 
 def chat(client, model: str, system: str, user: str, json_mode: bool = False) -> str:
     kwargs: dict[str, Any] = {
         "model": model,
         "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
+        "temperature": 0,
     }
     if json_mode:
         kwargs["response_format"] = {"type": "json_object"}
-    try:
-        resp = client.chat.completions.create(temperature=0, **kwargs)
-    except Exception as exc:  # reasoning models reject a custom temperature
-        if "temperature" in str(exc).lower():
+    # Some models reject a custom temperature or JSON mode; drop the option and retry.
+    for _ in range(3):
+        try:
             resp = client.chat.completions.create(**kwargs)
-        else:
-            raise
-    return (resp.choices[0].message.content or "").strip()
+            break
+        except Exception as exc:
+            msg = str(exc).lower()
+            if "temperature" in msg and "temperature" in kwargs:
+                kwargs.pop("temperature")
+            elif "response_format" in msg and "response_format" in kwargs:
+                kwargs.pop("response_format")
+            else:
+                raise
+    else:
+        resp = client.chat.completions.create(**kwargs)
+    msg = resp.choices[0].message if resp.choices else None
+    return ((msg.content if msg else None) or "").strip()
 
 
 def build_system_prompt(version: str, case: dict, glossary: Glossary) -> str:

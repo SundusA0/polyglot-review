@@ -79,14 +79,22 @@ The warehouse side expects the columns the bundled query produces (`week_start, 
 
 ![Usage page](docs/screenshots/usage.png)
 
-## What I found reviewing it myself
+## What I found
 
-I reviewed 13 responses by hand in the English and Arabic cases, the two languages I can judge as a native speaker (`docs/sample_annotations.csv`).
+### Real model output
 
-- **The baseline prompt holds up in English but not in Arabic.** My average factuality score for Arabic went from 2.0 with v1 to 4.4 with v2, while English barely moved (4.5 to 4.6). An English-only check would have rated v1 as good enough.
-- **The suggested tags matched my judgement on every response I reviewed.** It's a small sample, but it's a useful sanity check alongside the calibration numbers above, which are measured on synthetic errors.
+I ran all 36 cases through Gemini Flash-Lite with each prompt version (temperature 0) and had an LLM judge grade every answer. Full report with confidence intervals: [`docs/live_eval.md`](docs/live_eval.md); raw answers in `data/live_responses.csv`.
 
-Next, I want more than one reviewer per language, so agreement between reviewers can be measured instead of assumed.
+- **The glossary prompt (v2) is the change that matters, and it is about terminology.** Compared with the baseline, v2 raised the combined heuristic score by 13.7 points (95% CI 7.1 to 21.2), better on 13 cases and worse on none. German terminology went from 53 to 100 and Japanese from 75 to 100: without the glossary the model answers correctly but in its own words.
+- **Factuality was already high without it.** The judge rated v1 at 4.61/5 and v2 at 4.81/5, but that difference (+0.19, CI 0.00 to 0.39) is not clearly above zero, so I do not claim v2 is more accurate.
+- **The stricter prompt (v3) was worse than v2**: judge score -0.22 (CI -0.39 to -0.06), and 14% of its answers missed a key fact against 0% for v2. More rules did not help; v2 is the version to keep.
+- **Gemini's safety filter blocked an ordinary Arabic question.** The expense-reimbursement question was refused under all three prompts (`finish_reason: content_filter: PROHIBITED_CONTENT`) while the same question was answered in the other five languages. That one case is why Arabic scores lower. A single case is not a pattern, but it is the kind of failure an English-only evaluation never sees.
+
+Limits: one small model, judged by a model from the same family, one answer per case, 36 synthetic HR scenarios.
+
+### Hand review of the synthetic set
+
+I reviewed 13 of the synthetic responses in English and Arabic, the two languages I can judge natively (`docs/sample_annotations.csv`), and agreed with every suggested tag. Those responses have errors injected at rates set per version, so they test the review workflow, not the prompts.
 
 ## Project layout
 
