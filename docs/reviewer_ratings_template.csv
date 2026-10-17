@@ -1,0 +1,6 @@
+reviewer_id,case_number,case_language,language_proficiency,answer_a_completeness_1_to_5,answer_b_completeness_1_to_5,answer_a_material_omission_yes_no_unsure,answer_b_material_omission_yes_no_unsure,answer_a_impact_none_low_medium_high,answer_b_impact_none_low_medium_high,preferred_answer_A_B_tie,rationale,review_date
+,01,English,,,,,,,,,,
+,02,Spanish,,,,,,,,,,
+,03,German,,,,,,,,,,
+,04,French,,,,,,,,,,
+,05,Spanish,,,,,,,,,,

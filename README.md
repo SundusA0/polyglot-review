@@ -36,6 +36,8 @@ relevance/severity assessments.
 same-family Gemini judge; synthetic *questions/policies* but real model-generated *answers*.
 The five omissions are automated key-fact alerts, not five human-confirmed quality regressions.
 
+**Follow-up evaluation:** An [AI-assisted provisional triage](docs/omission_review.md) distinguishes supplemental PTO details from conditionally relevant payroll details. Independent human assessment is still pending; a [blinded review packet](docs/blinded_review_packet.md) and [unfilled ratings template](docs/reviewer_ratings_template.csv) are provided.
+
 ## Evaluation results: real model outputs vs synthetic demo data
 
 This repository contains **two separate response datasets**:

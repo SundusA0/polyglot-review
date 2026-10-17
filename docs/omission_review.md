@@ -22,6 +22,61 @@
 | [`pay_schedule-fr`](#case-pay_schedule-fr) | 3 | 5/5 | 5/5 | Paper-cheque delay may matter for employees using cheques; user did not specify payment method. | Pending | Pending |
 | [`pay_schedule-es`](#case-pay_schedule-es) | 3 | 5/5 | 4/5 | Paper-cheque delay may matter for employees using cheques; user did not specify payment method. | Pending | Pending |
 
+## Assistant-assisted provisional assessment (NOT a human review)
+
+These assessments were made by an AI assistant from the recorded questions,
+fictional policies, actual outputs, and judge explanations. They are **not**
+independent human assessments or native-speaker validation in French, Spanish,
+or German. Human relevance/severity ratings elsewhere in this worksheet remain
+**Pending**. These labels are hypotheses for a separate blinded evaluation.
+
+| Case | Provisional relevance | Conditional impact of omission | Required to answer? |
+| --- | --- | --- | --- |
+| `pto_accrual-en` | supplementary | low | No |
+| `pto_accrual-es` | supplementary | low | No |
+| `pto_accrual-de` | supplementary | low | No |
+| `pay_schedule-fr` | conditional | medium if paid by paper cheque | Conditional |
+| `pay_schedule-es` | conditional | medium if paid by paper cheque | Conditional |
+
+### Case-specific rationales
+
+**`pto_accrual-en`:** The user requests monthly PTO accrual and whether unused days carry over. v3 states the monthly rate, five-day rollover cap, and March 31 deadline; it omits only the derived annual total. That annual figure is helpful, but not required for either part of the question.
+
+**`pto_accrual-es`:** The Spanish question asks how many days accrue monthly and whether unused days can be saved. v3 provides the monthly rate and carryover conditions. The 15-day annual total is optional supporting context.
+
+**`pto_accrual-de`:** The German question asks for monthly vacation accrual and transferring unused days. v3 answers both; the missing annual total is additional information rather than a necessary condition.
+
+**`pay_schedule-fr`:** The French question asks when payment arrives and when hours must be submitted. v3 states the pay schedule and time-sheet deadline but describes direct-deposit timing only. The missing three-business-day cheque delay could matter materially to an employee paid by cheque.
+
+**`pay_schedule-es`:** The Spanish question asks when wages arrive and when hours are due. v3 provides the pay schedule and deadline, but not the possible three-business-day delay for paper cheques. The LLM judge itself noticed this missing detail and reduced its score.
+
+### What the results do and do not show
+
+- All five v3 outputs omit a *listed reference fact*, so the deterministic
+  coverage alerts are reproducible. This does not mean all five fail to answer
+  the employee's question. Three omissions are supplemental annual PTO totals.
+- In the two payroll cases, the missing cheque-delay qualifier has a plausible
+  conditional impact. The Spanish judge noted it (4/5); the French judge did not
+  (5/5). That disagreement warrants follow-up, not a claim of systematic judge bias.
+- These assessments do not change the 108 original model outputs or the
+  previously recorded judge scores. No additional generations were performed.
+- A review should distinguish **reference-fact coverage** from **question-level
+  sufficiency** and **user impact**; otherwise it can reward irrelevant detail.
+
+### Independent review protocol
+
+1. Give a fluent reviewer only [`blinded_review_packet.md`](blinded_review_packet.md)
+   and [`reviewer_ratings_template.csv`](reviewer_ratings_template.csv). Do **not**
+   show them this worksheet, model-version labels, or judge scores first.
+2. Ask the reviewer to score both anonymous responses against the exact question
+   and policy. Record whether an omission is material to the requested answer,
+   and what harm or confusion might follow, if any.
+3. Collect ratings independently before revealing which answer used which prompt.
+   Ideally obtain a second reviewer per language and compare disagreements.
+4. After collecting ratings, report the distribution, disagreements, and
+   qualitative rationales. Five selected cases are **not** an unbiased estimate
+   of overall production error rates.
+
 ## Detailed source evidence
 
 Exact texts below come from [`data/live_responses.csv`](../data/live_responses.csv) and
