@@ -8,6 +8,34 @@ A Streamlit workbench for reviewing an LLM assistant's answers across languages,
 
 It grew out of a simple question: when an HR helpdesk assistant answers in French, Japanese or Arabic, how do you know the answer is right, uses the company's terminology, and actually stayed in the target language — and how do you tell whether a new prompt made things better?
 
+## Case study: key-fact coverage versus LLM-judge scores
+
+**Real model output, fictional HR policy.** The question was:
+
+> How many vacation days do I get each month, and can I roll over the ones I don't use?
+
+The policy specifies **1.25 days per month, 15 days per year, up to 5 days carried over, and a March 31 deadline**.
+
+| | Glossary + grounding (v2) | Stricter instructions (v3) |
+| --- | --- | --- |
+| Actual Gemini answer | Full-time employees accrue 1.25 days of paid time off per month, for a total of 15 days per year. You may carry over up to 5 unused paid time off days into the next calendar year. Please remember that any carried-over days must be used by March 31. | Full-time employees accrue 1.25 days of paid time off per month. Up to 5 unused paid time off days may be carried over into the next calendar year. Any carried-over days must be used by March 31. |
+| Annual total mentioned? | **15 days/year** | **Omitted** |
+| LLM judge factuality grade | **5/5** | **5/5** |
+
+The v3 judge rationale was: *The assistant answer is fully supported by the policy context, accurately stating the monthly accrual rate, the carry-over limit, and the March 31 deadline.*
+
+**Interpretation:** the rule-based checker flagged missing coverage of the 15-day annual total,
+even though both responses address the monthly accrual and carryover actually asked about.
+This is an **evaluation disagreement to investigate**, not proof that the LLM judge failed
+or that the answer was harmful. In a separate Spanish payroll case, the judge *did* note a
+missing paper-cheque detail and lowered the grade. See the [five-case evidence and human-review
+worksheet](docs/omission_review.md) for full prompt outputs, judge rationales, and pending
+relevance/severity assessments.
+
+**Scale and limits:** 36 paired questions in six languages, one Gemini generation per version,
+same-family Gemini judge; synthetic *questions/policies* but real model-generated *answers*.
+The five omissions are automated key-fact alerts, not five human-confirmed quality regressions.
+
 ## Evaluation results: real model outputs vs synthetic demo data
 
 This repository contains **two separate response datasets**:
@@ -36,7 +64,6 @@ python -m streamlit run demo_app.py
 Deploy on [Streamlit Community Cloud](https://share.streamlit.io/) using repo
 `SundusA0/polyglot-review`, branch `main`, entrypoint **`demo_app.py`**.
 No API keys or Databricks credentials are needed for the bundled demo.
-After deployment, add your real app URL here—do not publish API keys.
 
 To inspect the five **automatically flagged** omissions before making any
 human-verified claim, run `python scripts/inspect_live_omissions.py`, then

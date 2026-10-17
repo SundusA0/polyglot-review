@@ -51,8 +51,8 @@ errors that were deliberately injected.
 reach, unique users, events per user, week-over-week movement, locale mix, and a reconciliation of
 the two sources.
 
-Everything runs offline. Add an OpenAI key in the sidebar to regenerate a response for any prompt
-version or to score a response with an LLM judge.
+Bundled responses and analysis are available without an API key. Optional live model generation
+and judging are available in the local `app.py` with an OpenAI key; the public demo disables API calls.
             """
         )
     with right:
