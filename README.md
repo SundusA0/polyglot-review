@@ -2,7 +2,7 @@
 
 ![tests](https://github.com/SundusA0/polyglot-review/actions/workflows/tests.yml/badge.svg)
 
-**[🚀 Try the Live Demo](https://polyglot-review-7pkqnkn5ydf2j4sdcvarra.streamlit.app)** · [Evaluation Results](docs/live_eval.md) · [Real Model Outputs](data/live_responses.csv)
+**[ Try the Live Demo](https://polyglot-review-7pkqnkn5ydf2j4sdcvarra.streamlit.app)** · [Evaluation Results](docs/live_eval.md) · [Real Model Outputs](data/live_responses.csv)
 
 A Streamlit workbench for reviewing an LLM assistant's answers across languages, comparing prompt versions, and reading the product-usage data that says which languages deserve attention.
 
