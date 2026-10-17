@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import html
+import os
 import re
 
 import pandas as pd
@@ -47,6 +48,15 @@ CSS = """
 
 
 # --------------------------------------------------------------------------- #
+# Public demo isolation
+# --------------------------------------------------------------------------- #
+
+def public_demo() -> bool:
+    """Set by demo_app.py; public visitors use only their own Streamlit session."""
+    return os.environ.get("POLYGLOT_PUBLIC_DEMO") == "1"
+
+
+# --------------------------------------------------------------------------- #
 # State
 # --------------------------------------------------------------------------- #
 
@@ -65,6 +75,8 @@ def init_state() -> None:
 
 
 def _load_annotations_from_disk() -> None:
+    if public_demo():
+        return  # Do not expose local/shared saved annotations to visitors.
     ss = st.session_state
     if config.ANNOTATIONS_CSV.exists():
         try:
@@ -85,7 +97,9 @@ def _load_annotations_from_disk() -> None:
 
 
 def persist_annotations() -> None:
-    """Write the session's annotations to annotations/ so a page refresh doesn't lose work."""
+    """Persist only in private/local mode; public sessions never write to disk."""
+    if public_demo():
+        return
     config.ANNOTATIONS_DIR.mkdir(parents=True, exist_ok=True)
     annotations_frame(st.session_state["annotations"]).to_csv(config.ANNOTATIONS_CSV, index=False)
     preferences_frame(st.session_state["case_prefs"]).to_csv(config.PREFERENCES_CSV, index=False)
@@ -158,13 +172,18 @@ def available_versions() -> list[str]:
 # --------------------------------------------------------------------------- #
 
 def llm_settings():
-    """Returns (api_key or None, model). Key from env or a session-only override."""
+    """Returns (api_key or None, model); live calls are disabled in public demos."""
+    if public_demo():
+        return None, config.DEFAULT_OPENAI_MODEL
     key = resolve_api_key(st.session_state.get("openai_key_override"))
     model = resolve_model(st.session_state.get("openai_model_override"))
     return key, model
 
 
 def sidebar_llm_box() -> None:
+    if public_demo():
+        st.sidebar.caption("Public demo · model generation disabled · annotations stay in this session")
+        return
     key, model = llm_settings()
     with st.sidebar.expander("OpenAI (optional)", expanded=False):
         if key:

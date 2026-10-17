@@ -14,6 +14,9 @@ def render() -> None:
     common.sidebar_llm_box()
 
     st.title("Polyglot Review")
+    st.info("Start here: **Review** compares actual Gemini answers side by side (v2-live vs v3-live). **Compare versions** summarizes differences across languages. Synthetic injected-error examples remain available to validate the scorer.")
+    if common.public_demo():
+        st.caption("Public demo · fictional HR scenarios · no live model calls · changes stay in your session")
     st.markdown(
         "A workbench for reviewing an LLM assistant's answers across languages, comparing prompt "
         "versions, and reading the product-usage data that tells you which languages matter."

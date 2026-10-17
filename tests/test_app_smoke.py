@@ -55,6 +55,20 @@ def test_compare_renders():
     assert any("Compare versions" in t.value for t in at.title)
 
 
+def test_real_model_comparison_defaults():
+    at = _run_view("compare")
+    _assert_clean(at)
+    assert at.selectbox(key="compare_va").value == "v2-live"
+    assert at.selectbox(key="compare_vb").value == "v3-live"
+
+
+def test_real_model_review_defaults():
+    at = _run_view("review")
+    _assert_clean(at)
+    assert at.selectbox(key="review_va").value == "v2-live"
+    assert at.selectbox(key="review_vb").value == "v3-live"
+
+
 def test_usage_renders_all_tabs():
     at = _run_view("usage")
     _assert_clean(at)
@@ -66,6 +80,10 @@ def test_review_annotation_flow():
     at = _run_view("review")
     _assert_clean(at)
     assert at.selectbox(key="case_select").value == "pto_accrual-en"
+    # The default is now real Gemini output; this older test explicitly selects
+    # the injected-error demo so its existing assertions remain meaningful.
+    at.selectbox(key="review_va").set_value("v1").run()
+    _assert_clean(at)
 
     # Navigate with the "Next" button.
     next_button = [b for b in at.button if b.label.startswith("Next ▶")][0]

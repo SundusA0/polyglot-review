@@ -299,10 +299,12 @@ def render() -> None:
     sel = st.sidebar.multiselect("Languages", languages, default=languages, key="review_langs",
                                  format_func=lambda c: f"{names[c]} ({c})")
     versions = common.available_versions()
+    preferred_a = "v2-live" if "v2-live" in versions else versions[0]
+    preferred_b = "v3-live" if "v3-live" in versions else versions[min(1, len(versions) - 1)]
     if ss.get("review_vb") not in versions:
-        ss["review_vb"] = versions[min(1, len(versions) - 1)]
+        ss["review_vb"] = preferred_b
     if ss.get("review_va") not in versions:
-        ss["review_va"] = versions[0]
+        ss["review_va"] = preferred_a
     labels = common.version_labels()
     st.sidebar.selectbox("Version A", versions, key="review_va", format_func=lambda v: labels.get(v, v))
     st.sidebar.selectbox("Version B", versions, key="review_vb", format_func=lambda v: labels.get(v, v))
@@ -312,6 +314,12 @@ def render() -> None:
     llm_ready = bool(key)
 
     st.title("Review")
+    if common.public_demo():
+        st.caption("Public demo: annotations remain in your browser session only; live API calls are disabled.")
+    if ss["review_va"].endswith("-live") and ss["review_vb"].endswith("-live"):
+        st.info("Showing actual model-generated answers to fictional HR policies. Compare the glossary-grounded and stricter prompt versions; inspect missing key facts below each answer.")
+    else:
+        st.info("Showing constructed validation examples. Switch to v2-live and v3-live to inspect the real Gemini experiment.")
 
     # Case list
     filtered = cases[cases["language"].isin(sel)]

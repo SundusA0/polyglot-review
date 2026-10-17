@@ -125,12 +125,18 @@ def render() -> None:
         return
 
     c1, c2 = st.columns(2)
+    preferred_a = "v2-live" if "v2-live" in versions else versions[0]
+    preferred_b = "v3-live" if "v3-live" in versions else versions[min(1, len(versions) - 1)]
     if ss.get("compare_va") not in versions:
-        ss["compare_va"] = versions[0]
+        ss["compare_va"] = preferred_a
     if ss.get("compare_vb") not in versions:
-        ss["compare_vb"] = versions[min(1, len(versions) - 1)]
+        ss["compare_vb"] = preferred_b
     va = c1.selectbox("Version A", versions, key="compare_va", format_func=lambda v: labels.get(v, v))
     vb = c2.selectbox("Version B", versions, key="compare_vb", format_func=lambda v: labels.get(v, v))
+    if va.endswith("-live") and vb.endswith("-live"):
+        st.caption("Actual Gemini-generated answers to fictional HR policies. No errors were injected into these model outputs; scores are exploratory heuristics.")
+    else:
+        st.caption("Synthetic/injected-error examples are for validating the scorer, not estimating live model quality. Select v2-live and v3-live for the real-model experiment.")
 
     # --- Aggregate scores -------------------------------------------------- #
     st.subheader("Average scores by language")
@@ -141,7 +147,7 @@ def render() -> None:
     k2.plotly_chart(charts.version_metric_bars(agg_ab, "terminology", "Terminology (auto, 0-100)"), width="stretch")
 
     overall = (
-        scored.groupby("prompt_version")
+        scored[scored["prompt_version"].isin([va, vb])].groupby("prompt_version")
         .agg(responses=("response_id", "count"), factuality=("factuality_auto", "mean"),
              terminology=("terminology_auto", "mean"),
              flagged_pct=("suggested_tags", lambda s: 100 * (s != "").mean()))
@@ -181,7 +187,7 @@ def render() -> None:
 
     # --- Tags --------------------------------------------------------------- #
     st.subheader("Suggested error tags")
-    tag_counts = _tag_counts(scored)
+    tag_counts = _tag_counts(scored[scored["prompt_version"].isin([va, vb])])
     if tag_counts.empty:
         st.caption("No tags suggested for the current selection.")
     else:

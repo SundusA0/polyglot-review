@@ -16,6 +16,30 @@ This repository contains **two separate response datasets**:
 
 All HR scenarios and policies are fictional. The real-model experiment uses one model, one generation per case and prompt version, and a judge from the same model family. Its findings are exploratory, not general claims about model performance.
 
+## Public demo
+
+A safe, read-only **public** entrypoint is included as `demo_app.py`. It defaults to
+real Gemini output (`v2-live` vs `v3-live`); visitors can inspect synthetic
+HR cases, compare prompt versions and annotate within their **own session**.
+In this mode, annotation files are neither read from nor written to shared disk,
+and API-backed generation/judging is disabled. Your original `app.py` remains
+available for local research with persisted annotations.
+
+To run the public version locally:
+
+```bash
+python -m streamlit run demo_app.py
+```
+
+Deploy on [Streamlit Community Cloud](https://share.streamlit.io/) using repo
+`SundusA0/polyglot-review`, branch `main`, entrypoint **`demo_app.py`**.
+No API keys or Databricks credentials are needed for the bundled demo.
+After deployment, add your real app URL here—do not publish API keys.
+
+To inspect the five **automatically flagged** omissions before making any
+human-verified claim, run `python scripts/inspect_live_omissions.py`, then
+review `docs/omission_candidates.md` case by case.
+
 ![Review page](docs/screenshots/review.png)
 
 ## What's in it
