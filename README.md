@@ -6,6 +6,16 @@ A Streamlit workbench for reviewing an LLM assistant's answers across languages,
 
 It grew out of a simple question: when an HR helpdesk assistant answers in French, Japanese or Arabic, how do you know the answer is right, uses the company's terminology, and actually stayed in the target language — and how do you tell whether a new prompt made things better?
 
+## Evaluation results: real model outputs vs synthetic demo data
+
+This repository contains **two separate response datasets**:
+
+- **Real model evaluation:** Gemini Flash-Lite generated 108 answers to 36 fictional HR questions across six languages and three prompt versions. No errors were artificially injected into these answers. The key-fact checker flagged omissions in 5 of 36 answers with the stricter prompt (v3), compared with 0 of 36 with the glossary-grounded prompt (v2). The stricter prompt still averaged 4.58/5 from an LLM judge. See the [evaluation report](docs/live_eval.md) and [raw model outputs](data/live_responses.csv).
+
+- **Synthetic scorer-validation data:** A separate set of 108 constructed responses contains deliberately injected errors. These responses test whether the evaluation tool detects known mistakes; they are not used to measure prompt performance.
+
+All HR scenarios and policies are fictional. The real-model experiment uses one model, one generation per case and prompt version, and a judge from the same model family. Its findings are exploratory, not general claims about model performance.
+
 ![Review page](docs/screenshots/review.png)
 
 ## What's in it
@@ -63,7 +73,7 @@ Limits worth knowing: an invented claim with no number in it is invisible to the
 
 Templates use `{language_name}`, `{context}` and `{glossary_block}` placeholders and are rendered by `src/llm.py` when a response is generated live.
 
-## The demo data is synthetic
+## Synthetic demo data for scorer validation
 
 Nothing here comes from a real company. `scripts/generate_synthetic_data.py` builds:
 
@@ -87,7 +97,7 @@ I ran all 36 cases through Gemini Flash-Lite with each prompt version (temperatu
 
 - **The glossary prompt (v2) is the change that matters, and it is about terminology.** Compared with the baseline, v2 raised the combined heuristic score by 13.7 points (95% CI 7.1 to 21.2), better on 13 cases and worse on none. German terminology went from 53 to 100 and Japanese from 75 to 100: without the glossary the model answers correctly but in its own words.
 - **Factuality was already high without it.** The judge rated v1 at 4.61/5 and v2 at 4.81/5, but that difference (+0.19, CI 0.00 to 0.39) is not clearly above zero, so I do not claim v2 is more accurate.
-- **The stricter prompt (v3) was worse than v2**: judge score -0.22 (CI -0.39 to -0.06), and 14% of its answers missed a key fact against 0% for v2. Reading the five affected answers, every v3 answer is exactly three sentences, the minimum the prompt allows, and what it drops is the secondary fact (the 15-day yearly total, the 3-day delay for paper cheques). The longer rule list seems to push the model toward the shortest compliant answer. v2 is the version to keep.
+- **In this small evaluation, v3 produced more flagged omissions than v2**: judge score -0.22 (CI -0.39 to -0.06), and 14% of its answers missed a key fact against 0% for v2. Reading the five affected answers, every v3 answer is exactly three sentences, the minimum the prompt allows, and what it drops is the secondary fact (the 15-day yearly total, the 3-day delay for paper cheques). The longer rule list seems to push the model toward the shortest compliant answer. v2 is the version to keep.
 - **Gemini's safety filter blocked an ordinary Arabic question.** The expense-reimbursement question was refused under all three prompts (`finish_reason: content_filter: PROHIBITED_CONTENT`) while the same question was answered in the other five languages. That one case is why Arabic scores lower. A single case is not a pattern, but it is the kind of failure an English-only evaluation never sees.
 
 - **The judge agrees with a native speaker on Arabic.** I scored 12 of the real Arabic answers (v1 and v3) myself without looking at the judge's grades: we matched exactly on 8 of 12 and were within one point on all 12, with the same average (4.08) and no lean in either direction (`docs/judge_agreement_ar.csv`). A small sample, but it is evidence the judge's Arabic grades are not just self-agreement.
